@@ -1,13 +1,13 @@
-import path from 'path'
+import path from 'path';
 import webpack from 'webpack';
 
 export default {
-  devtools:'eval-source-map',
+  devtool:'eval-source-map',
   entry: [
     'react-hot-loader/patch',
     'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors/
     'webpack-hot-middleware/client?reload=true',
-    path.join(__dirname, '/client/index.js')
+    path.join(__dirname, '/client/index.jsx')
   ],
   output: {
     path: path.resolve(__dirname, '/dist'),
@@ -22,9 +22,9 @@ export default {
     loaders: [
       {
         test: /\.(js|jsx)$/,
-        include:path.join(__dirname,'client'),
-        loaders:['react-hot-loader/webpack','babel-loader'],
-        exclude:/node_modules/
+        include: path.join(__dirname,'client'),
+        loaders: ['react-hot-loader/webpack','babel-loader'],
+        exclude: /node_modules/
       }
     ]
   },
