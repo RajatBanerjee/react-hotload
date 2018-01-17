@@ -4,31 +4,31 @@ import webpack from 'webpack';
 export default {
   devtools: 'eval-source-map',
   entry: [
-    'webpack-hot-middleware/client',
+    'react-hot-loader/patch',
+    'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors/
+    'webpack-hot-middleware/client?reload=true',
     path.join(__dirname, '/client/index.js')
   ],
   output: {
-    path: '/',
-    publicPath: '/'
+    path: path.resolve(__dirname, '/dist'),
+    publicPath: '/',
+    filename: 'bundle.js'
   },
   plugins: [
     new webpack.NoErrorsPlugin(),
-    new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin()
   ],
   module: {
     loaders: [
       {
-        test: /\.js$/,
-        include: [
-          path.join(__dirname, 'client'),
-          path.join(__dirname, 'server/shared')
-        ],
-        loaders: [ 'react-hot', 'babel' ]
+        test: /\.(js|jsx)$/,
+        include: path.join(__dirname, 'client'),
+        loaders: ['react-hot-loader/webpack', 'babel-loader'],
+        exclude: /node_modules/
       }
     ]
   },
   resolve: {
-    extentions: [ '', '.js' ]
+    extensions: ['.js', '.jsx']
   }
 }
