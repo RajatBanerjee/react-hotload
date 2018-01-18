@@ -4,13 +4,11 @@ import webpack from 'webpack';
 export default {
   devtool:'eval-source-map',
   entry: [
-    'react-hot-loader/patch',
-    'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors/
-    'webpack-hot-middleware/client?reload=true',
-    path.join(__dirname, '/client/index.jsx')
+    'webpack-hot-middleware/client',
+    path.join(__dirname, '/client/index.js')
   ],
   output: {
-    path: path.resolve(__dirname, '/dist'),
+    path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
     filename: 'bundle.js'
   },
@@ -23,12 +21,10 @@ export default {
       {
         test: /\.(js|jsx)$/,
         include: path.join(__dirname,'client'),
-        loaders: ['react-hot-loader/webpack','babel-loader'],
+        loaders: ['babel-loader'],
         exclude: /node_modules/
       }
     ]
   },
-  resolve: {
-    extensions: ['.js', '.jsx']
-  }
+  resolve: { extensions: ['.js', '.jsx'] }
 };
