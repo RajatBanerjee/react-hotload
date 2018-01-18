@@ -3,7 +3,7 @@ import { hot } from 'react-hot-loader'
 const Greetings = ()=> {
     return (
       <div className="jumbotron">
-        <h1>op9!</h1>
+        <h1>op!</h1>
       </div>
     );
   }

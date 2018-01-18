@@ -1,5 +1,5 @@
 import  ReactDOM  from 'react-dom';
-import React from 'react';
+import React from "react";
 import Greetings from './components/Greetings.jsx'
 
 // render(
@@ -7,11 +7,26 @@ import Greetings from './components/Greetings.jsx'
 //     document.getElementById('app')
 // );
 
-const element  = (
-    <Greetings />
-);
+// const element  = (
+//     <Greetings />
+// );
 
-ReactDOM.render(
-  element, document.getElementById('app')
-  );
+// ReactDOM.render(
+//   element, document.getElementById('app')
+//   );
   
+
+
+class App extends React.Component {
+  render() {
+    return (
+      <div className="App">
+        <div className="App-header">
+          <h2>Welcome to React in the Server</h2>
+        </div>
+        <Greetings/>
+      </div>
+    );
+  }
+}
+export default App;
