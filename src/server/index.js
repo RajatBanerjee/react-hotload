@@ -6,7 +6,7 @@ import webpack from 'webpack';
 import webpackMiddleware from 'webpack-dev-middleware';
 import webpackHotMiddleware from 'webpack-hot-middleware';
 import webpackConfig from './webpack.config.dev';
-import App from "./client/index.js";
+import App from "../shared/App.js";
 import { renderToString } from "react-dom/server";
 import React from "react";
 let app = express();

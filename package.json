@@ -28,9 +28,9 @@
     "webpack-hot-middleware": "^2.21.0"
   },
   "scripts": {
-    "start:dev": "nodemon index.js --exec babel-node --presets es2015,stage-2",
+    "start:dev": "nodemon ./src/server/index.js ",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "babel index.js -d dist",
+    "build": "babel ./src/server/index.js -d dist",
     "start" :"node dist/index.js"
   },
   "author": "",
